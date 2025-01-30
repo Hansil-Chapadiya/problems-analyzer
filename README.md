@@ -144,7 +144,7 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 - **Developer**: [Hansil-Chapadiya]
 - **Email**: chapadiyahansil@gmail.com
-- **GitHub**: [Your GitHub Profile](https://github.com/Hansil-Chapadiya)
+- **GitHub**: https://github.com/Hansil-Chapadiya
 
 ---
 
