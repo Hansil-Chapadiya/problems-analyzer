@@ -118,6 +118,13 @@ const Modal: React.FC<ModalProps> = ({ onClose }) => {
           </div>
         </div>
 
+        {/* Validation Message */}
+        {(!skill || selectedTags.length === 0) && (
+          <p className="text-sm text-red-400 text-center">
+            Please select both skill level and at least one tag to continue
+          </p>
+        )}
+
         {/* Buttons */}
         <div className="flex justify-end gap-4">
           <button
