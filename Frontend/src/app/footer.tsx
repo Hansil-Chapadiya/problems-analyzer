@@ -8,8 +8,8 @@ export default function Footer() {
       <p>© {new Date().getFullYear()} Problem Analyzer. All rights reserved.</p>
 
       <div className="mt-2">
-        <Link href="/about">
-          <a className="text-teal-400 hover:underline">About</a>
+        <Link href="/about" className="text-teal-400 hover:underline">
+          About
         </Link>
       </div>
 

@@ -8,6 +8,7 @@ import { useRouter } from "next/navigation";
 const Header = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [showLoginPrompt, setShowLoginPrompt] = useState(false); // State for login prompt
+  const [showRenderAlert, setShowRenderAlert] = useState(true); // State for Render delay alert
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [skill, setSkill] = useState("");
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -64,6 +65,27 @@ const Header = () => {
     >
       {/* Overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-black via-transparent to-black"></div>
+
+      {/* Render Delay Alert */}
+      {showRenderAlert && (
+        <div className="absolute top-20 left-1/2 transform -translate-x-1/2 z-30 w-11/12 max-w-2xl">
+          <div className="bg-yellow-500 bg-opacity-90 text-black px-6 py-4 rounded-lg shadow-lg flex items-center justify-between animate-pulse">
+            <div className="flex items-center gap-3">
+              <span className="text-2xl">⚠️</span>
+              <p className="text-sm sm:text-base font-medium">
+                <strong>Please Note:</strong> Our backend is hosted on Render free tier. Initial requests may take <strong>50+ seconds</strong> due to cold starts. Thank you for your patience!
+              </p>
+            </div>
+            <button
+              onClick={() => setShowRenderAlert(false)}
+              className="ml-4 text-black hover:text-gray-700 font-bold text-xl"
+              aria-label="Close alert"
+            >
+              ✕
+            </button>
+          </div>
+        </div>
+      )}
 
       {/* Navigation Bar */}
       <div className="absolute inset-x-0 top-0 px-6 sm:px-8 py-4 flex items-center justify-between text-white z-20">

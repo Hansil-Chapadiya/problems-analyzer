@@ -46,7 +46,7 @@ const Modal: React.FC<ModalProps> = ({ onClose }) => {
   };
 
   const handleSubmit = () => {
-    if (skill) {
+    if (skill && selectedTags.length > 0) {
       const query = new URLSearchParams({
         skill,
         tags: selectedTags.join(","), // Join selected tags with commas
@@ -69,7 +69,7 @@ const Modal: React.FC<ModalProps> = ({ onClose }) => {
 
         {/* Skill Selection */}
         <div className="space-y-3">
-          <h3 className="font-semibold text-cyan-50">Skill Level</h3>
+          <h3 className="font-semibold text-cyan-50">Skill Level <span className="text-red-400">*</span></h3>
           <div className="flex flex-wrap gap-3">
             {["Beginner", "Intermediate", "Advanced", "Master"].map((level) => (
               <label
@@ -95,7 +95,7 @@ const Modal: React.FC<ModalProps> = ({ onClose }) => {
 
         {/* Tag Selection */}
         <div className="space-y-3">
-          <h3 className="font-semibold text-cyan-50">Tags</h3>
+          <h3 className="font-semibold text-cyan-50">Tags <span className="text-red-400">*</span></h3>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-3 max-h-64 overflow-y-auto">
             {tags.map((tag) => (
               <label
@@ -128,8 +128,8 @@ const Modal: React.FC<ModalProps> = ({ onClose }) => {
           </button>
           <button
             onClick={handleSubmit}
-            disabled={!skill}
-            className={`px-4 py-2 rounded-lg transition ${skill
+            disabled={!skill || selectedTags.length === 0}
+            className={`px-4 py-2 rounded-lg transition ${skill && selectedTags.length > 0
               ? "bg-blue-500 text-white hover:bg-blue-600"
               : "bg-gray-300 text-gray-400 cursor-not-allowed"
               }`}
